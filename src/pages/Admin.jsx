@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Trash2, CheckCircle, XCircle, Mail, Calendar, User, Phone, Users, MessageSquare } from 'lucide-react';
 import gsap from 'gsap';
+import API_URL from '../config';
 
 const Admin = () => {
   const [activeTab, setActiveTab] = useState('bookings');
@@ -16,8 +17,8 @@ const Admin = () => {
     setLoading(true);
     try {
       const [bookingsRes, contactsRes] = await Promise.all([
-        fetch('http://localhost:5000/api/admin/bookings'),
-        fetch('http://localhost:5000/api/admin/contacts')
+        fetch(`${API_URL}/api/admin/bookings`),
+        fetch(`${API_URL}/api/admin/contacts`)
       ]);
       
       if (bookingsRes.ok && contactsRes.ok) {
@@ -35,7 +36,7 @@ const Admin = () => {
 
   const updateBookingStatus = async (id, status) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/bookings/${id}`, {
+      const response = await fetch(`${API_URL}/api/admin/bookings/${id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status })
@@ -51,7 +52,7 @@ const Admin = () => {
   const deleteBooking = async (id) => {
     if (!window.confirm('Are you sure you want to delete this booking?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/bookings/${id}`, {
+      const response = await fetch(`${API_URL}/api/admin/bookings/${id}`, {
         method: 'DELETE'
       });
       if (response.ok) {
@@ -65,7 +66,7 @@ const Admin = () => {
   const deleteContact = async (id) => {
     if (!window.confirm('Are you sure you want to delete this message?')) return;
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/contacts/${id}`, {
+      const response = await fetch(`${API_URL}/api/admin/contacts/${id}`, {
         method: 'DELETE'
       });
       if (response.ok) {

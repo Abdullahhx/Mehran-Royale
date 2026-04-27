@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import API_URL from '../config';
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -20,7 +21,7 @@ const Booking = () => {
   useEffect(() => {
     const fetchBookedDates = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/booking/booked-dates');
+        const response = await fetch(`${API_URL}/api/booking/booked-dates`);
         if (response.ok) {
           const data = await response.json();
           // Convert strings to Date objects
@@ -45,7 +46,7 @@ const Booking = () => {
 
     try {
       const payload = { ...formData, date: selectedDate };
-      const response = await fetch('http://localhost:5000/api/booking', {
+      const response = await fetch(`${API_URL}/api/booking`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
