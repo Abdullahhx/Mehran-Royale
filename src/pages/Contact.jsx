@@ -2,6 +2,7 @@ import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import API_URL from '../config';
+import GlobalHero from '../components/GlobalHero';
 
 const FacebookIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -59,15 +60,15 @@ const Contact = () => {
   };
 
   return (
-    <div ref={containerRef} style={{ paddingTop: '100px', backgroundColor: 'var(--color-primary)', minHeight: '100vh' }}>
+    <div ref={containerRef} style={{ backgroundColor: 'var(--color-primary)', minHeight: '100vh' }}>
+      <GlobalHero 
+        title="Contact Us" 
+        breadcrumb="Home / Contact" 
+        bgImage="/images/wedding_setup_lawn_1777125850486.png" 
+      />
+
       <div className="section">
         <div className="container" style={{ maxWidth: '1200px' }}>
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h1 className="contact-stagger" style={{ fontSize: '3.5rem', marginBottom: '15px' }}>Contact Us</h1>
-            <p className="contact-stagger" style={{ fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-              We're here to help you plan the perfect event. Reach out to us for general inquiries, support, or to schedule a visit to the farmhouse.
-            </p>
-          </div>
 
           {/* Map Section */}
           <div className="contact-stagger" style={{ marginBottom: '40px', backgroundColor: '#e5e3df', borderRadius: '16px', overflow: 'hidden', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-md)', position: 'relative' }}>

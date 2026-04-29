@@ -2,8 +2,9 @@ import Hero from '../components/Hero';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GallerySection from '../components/GallerySection';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,11 +87,14 @@ const Home = () => {
             We provide a premium farmhouse experience designed for family picnics, weddings, and private events. 
             With spacious green lawns, elegant setups, and top-tier service, we ensure every event becomes memorable.
           </p>
-          <img 
+          <video 
             className="welcome-text"
-            src="/images/farmhouse_hero_day_1777125835860.png" 
-            alt="Farmhouse Exterior"
-            style={{ width: '100%', borderRadius: '12px', boxShadow: 'var(--shadow-md)', height: '400px', objectFit: 'cover' }}
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '12px', boxShadow: 'var(--shadow-md)', pointerEvents: 'none' }}
           />
         </div>
       </section>
@@ -148,6 +152,22 @@ const Home = () => {
                 </h4>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <GallerySection />
+
+      {/* Map Section */}
+      <section className="section map-section" style={{ backgroundColor: 'var(--color-primary)' }}>
+        <div className="container">
+          <div style={{ backgroundColor: '#e5e3df', borderRadius: '16px', overflow: 'hidden', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-md)', position: 'relative' }}>
+            <div style={{ textAlign: 'center', color: 'var(--color-text-light)' }}>
+              <MapPin size={48} style={{ margin: '0 auto 15px auto', color: 'var(--color-text)' }} />
+              <h3>Interactive Google Map</h3>
+              <p>Location: Karachi</p>
+            </div>
           </div>
         </div>
       </section>

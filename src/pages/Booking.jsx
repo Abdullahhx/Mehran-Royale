@@ -3,6 +3,7 @@ import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import API_URL from '../config';
+import GlobalHero from '../components/GlobalHero';
 
 const Booking = () => {
   const [formData, setFormData] = useState({
@@ -78,16 +79,16 @@ const Booking = () => {
   };
 
   return (
-    <div style={{ paddingTop: '100px', backgroundColor: 'var(--color-gray)', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: 'var(--color-gray)', minHeight: '100vh' }}>
+      
+      <GlobalHero 
+        title="Request a Booking" 
+        breadcrumb="Home / Booking" 
+        bgImage="/images/picnic_family_pool_1777125863872.png" 
+      />
+
       <div className="section">
         <div className="container" style={{ maxWidth: '1000px' }}>
-          
-          <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <h1 style={{ fontSize: '3.5rem', marginBottom: '15px' }}>Request a Booking</h1>
-            <p style={{ fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-              Fill out the form below to inquire about dates, pricing, and specific arrangements for your upcoming event.
-            </p>
-          </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '40px', backgroundColor: 'var(--color-primary)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
             

@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Users, Layout, MapPin, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import GlobalHero from '../components/GlobalHero';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,16 +76,13 @@ const Services = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="services-page" style={{ paddingTop: '100px', backgroundColor: 'var(--color-primary)' }}>
+    <div ref={containerRef} className="services-page" style={{ backgroundColor: 'var(--color-primary)' }}>
       {/* Page Hero */}
-      <div className="section" style={{ backgroundColor: 'var(--color-gray)', textAlign: 'center', padding: '100px 0' }}>
-        <div className="container">
-          <h1 className="page-hero-text" style={{ fontSize: '4rem', marginBottom: '20px' }}>Our Services</h1>
-          <p className="page-hero-text" style={{ maxWidth: '600px', margin: '0 auto', fontSize: '1.2rem' }}>
-            From intimate family picnics to grand wedding celebrations, we offer tailored spaces and premium amenities for every occasion.
-          </p>
-        </div>
-      </div>
+      <GlobalHero 
+        title="Our Services" 
+        breadcrumb="Home / Services" 
+        bgImage="/images/picnic_family_pool_1777125863872.png" 
+      />
 
       {/* Services List */}
       <div className="section">

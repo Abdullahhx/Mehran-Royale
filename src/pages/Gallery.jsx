@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GlobalHero from '../components/GlobalHero';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,14 +33,16 @@ const Gallery = () => {
   }, [activeCat]);
 
   return (
-    <div ref={containerRef} className="gallery-page" style={{ paddingTop: '100px', backgroundColor: 'var(--color-primary)', minHeight: '100vh' }}>
+    <div ref={containerRef} className="gallery-page" style={{ backgroundColor: 'var(--color-primary)', minHeight: '100vh' }}>
       
+      <GlobalHero 
+        title="Gallery" 
+        breadcrumb="Home / Gallery" 
+        bgImage="/images/farmhouse_hero_day_1777125835860.png" 
+      />
+
       <div className="section" style={{ textAlign: 'center' }}>
         <div className="container">
-          <h1 style={{ fontSize: '3.5rem', marginBottom: '20px' }}>Our Gallery</h1>
-          <p style={{ maxWidth: '600px', margin: '0 auto 50px auto', fontSize: '1.1rem' }}>
-            A glimpse into the unforgettable moments created at Mehran Royale Farm House.
-          </p>
 
           {/* Filters */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '50px', flexWrap: 'wrap' }}>

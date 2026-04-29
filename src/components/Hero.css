@@ -37,7 +37,7 @@
 .hero-content {
   max-width: 800px;
   margin: 0;
-  padding-top: 80px; /* Offset for navbar */
+  padding: 80px 40px 0 40px; /* Offset for navbar and horizontal padding */
 }
 
 .hero-subtitle {
@@ -89,6 +89,10 @@
   .hero-actions .btn {
     width: 100%;
     max-width: 300px;
+  }
+  
+  .hero-content {
+    padding: 80px 16px 0 16px;
   }
 }
 
