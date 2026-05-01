@@ -3,19 +3,26 @@ import gsap from 'gsap';
 import { X, ZoomIn } from 'lucide-react';
 import './GallerySection.css';
 
+const categories = ['All', 'Weddings', 'Events', 'Picnics'];
+
 const galleryImages = [
-  { id: 1, src: '/images/picnic_family_pool_1777125863872.png', title: 'Family Picnic Pool' },
-  { id: 2, src: '/images/wedding_setup_lawn_1777125850486.png', title: 'Wedding Setup' },
-  { id: 3, src: '/images/farmhouse_hero_day_1777125835860.png', title: 'Farmhouse Exterior' },
-  { id: 4, src: '/images/picnic_family_pool_1777125863872.png', title: 'Poolside Relaxing' },
-  { id: 5, src: '/images/wedding_setup_lawn_1777125850486.png', title: 'Night Event Setup' },
-  { id: 6, src: '/images/farmhouse_hero_day_1777125835860.png', title: 'Lawn Area' }
+  { id: 1, category: 'Picnics', src: '/images/picnic_family_pool_1777125863872.png', title: 'Family Picnic Pool' },
+  { id: 2, category: 'Weddings', src: '/images/wedding_setup_lawn_1777125850486.png', title: 'Wedding Setup' },
+  { id: 3, category: 'Events', src: '/images/farmhouse_hero_day_1777125835860.png', title: 'Farmhouse Exterior' },
+  { id: 4, category: 'Picnics', src: '/images/picnic_family_pool_1777125863872.png', title: 'Poolside Relaxing' },
+  { id: 5, category: 'Weddings', src: '/images/wedding_setup_lawn_1777125850486.png', title: 'Night Event Setup' },
+  { id: 6, category: 'Events', src: '/images/farmhouse_hero_day_1777125835860.png', title: 'Lawn Area' }
 ];
 
 const GallerySection = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [activeCat, setActiveCat] = useState('All');
   const galleryRef = useRef(null);
+
+  const filteredImages = activeCat === 'All'
+    ? galleryImages
+    : galleryImages.filter(img => img.category === activeCat);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -34,6 +41,16 @@ const GallerySection = () => {
 
     return () => ctx.revert();
   }, []);
+
+  useEffect(() => {
+    // Re-trigger GSAP animation when category changes
+    if (galleryRef.current) {
+      gsap.fromTo('.gallery-item', 
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, stagger: 0.1, ease: 'power2.out' }
+      );
+    }
+  }, [activeCat]);
 
   const openLightbox = (index) => {
     setCurrentImageIndex(index);
@@ -54,8 +71,22 @@ const GallerySection = () => {
           <h2>Explore The Gallery</h2>
         </div>
 
+        {/* Filters */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '15px', marginBottom: '40px', flexWrap: 'wrap' }}>
+          {categories.map((cat, index) => (
+            <button 
+              key={index} 
+              onClick={() => setActiveCat(cat)}
+              className={`btn ${activeCat === cat ? 'btn-primary' : 'btn-outline'}`}
+              style={{ padding: '8px 24px', fontSize: '0.9rem' }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
         <div className="gallery-grid">
-          {galleryImages.map((img, index) => (
+          {filteredImages.map((img, index) => (
             <div 
               key={img.id} 
               className="gallery-item"
@@ -71,19 +102,19 @@ const GallerySection = () => {
       </div>
 
       {/* Lightbox Modal */}
-      {lightboxOpen && (
+      {lightboxOpen && filteredImages[currentImageIndex] && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <div className="lightbox-close" onClick={closeLightbox}>
             <X size={32} />
           </div>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <img 
-              src={galleryImages[currentImageIndex].src} 
-              alt={galleryImages[currentImageIndex].title} 
+              src={filteredImages[currentImageIndex].src} 
+              alt={filteredImages[currentImageIndex].title} 
               className="lightbox-image" 
             />
             <div className="lightbox-caption">
-              {galleryImages[currentImageIndex].title}
+              {filteredImages[currentImageIndex].title}
             </div>
           </div>
         </div>
