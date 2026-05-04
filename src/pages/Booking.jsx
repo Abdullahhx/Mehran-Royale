@@ -84,7 +84,7 @@ const Booking = () => {
       <GlobalHero 
         title="Request a Booking" 
         breadcrumb="Home / Booking" 
-        bgImage="/images/picnic_family_pool_1777125863872.png" 
+        bgImage="/images/pool-area.png" 
       />
 
       <div className="section">

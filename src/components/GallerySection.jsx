@@ -6,12 +6,12 @@ import './GallerySection.css';
 const categories = ['All', 'Weddings', 'Events', 'Picnics'];
 
 const galleryImages = [
-  { id: 1, category: 'Picnics', src: '/images/picnic_family_pool_1777125863872.png', title: 'Family Picnic Pool' },
-  { id: 2, category: 'Weddings', src: '/images/wedding_setup_lawn_1777125850486.png', title: 'Wedding Setup' },
-  { id: 3, category: 'Events', src: '/images/farmhouse_hero_day_1777125835860.png', title: 'Farmhouse Exterior' },
-  { id: 4, category: 'Picnics', src: '/images/picnic_family_pool_1777125863872.png', title: 'Poolside Relaxing' },
-  { id: 5, category: 'Weddings', src: '/images/wedding_setup_lawn_1777125850486.png', title: 'Night Event Setup' },
-  { id: 6, category: 'Events', src: '/images/farmhouse_hero_day_1777125835860.png', title: 'Lawn Area' }
+  { id: 1, category: 'Picnics', src: '/images/pool-area.png', title: 'Family Picnic Pool' },
+  { id: 2, category: 'Weddings', src: '/images/statue-horse.png', title: 'Wedding Setup' },
+  { id: 3, category: 'Events', src: '/images/hero-front.png', title: 'Farmhouse Exterior' },
+  { id: 4, category: 'Picnics', src: '/images/pool-area.png', title: 'Poolside Relaxing' },
+  { id: 5, category: 'Weddings', src: '/images/statue-horse.png', title: 'Night Event Setup' },
+  { id: 6, category: 'Events', src: '/images/hero-front.png', title: 'Lawn Area' }
 ];
 
 const GallerySection = () => {

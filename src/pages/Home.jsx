@@ -12,17 +12,17 @@ const services = [
   {
     title: 'Picnic Bookings',
     desc: 'Perfect for family day-outs and casual gatherings with a huge swimming pool.',
-    image: '/images/picnic_family_pool_1777125863872.png'
+    image: '/images/pool-area.png'
   },
   {
     title: 'Weddings',
     desc: 'Elegant outdoor wedding setups with customizable themes on lush green lawns.',
-    image: '/images/wedding_setup_lawn_1777125850486.png'
+    image: '/images/statue-horse.png'
   },
   {
     title: 'Private Parties',
     desc: 'Exclusive private events tailored to your needs in a luxurious setting.',
-    image: '/images/farmhouse_hero_day_1777125835860.png'
+    image: '/images/hero-front.png'
   }
 ];
 
@@ -93,7 +93,7 @@ const Home = () => {
             loop 
             muted 
             playsInline
-            src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            src="/farmhouse-video.mp4"
             style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '12px', boxShadow: 'var(--shadow-md)', pointerEvents: 'none' }}
           />
         </div>

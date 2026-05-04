@@ -14,9 +14,9 @@ const amenities = [
 ];
 
 const team = [
-  { name: 'Ahmed Khan', role: 'Event Manager', image: '/images/picnic_family_pool_1777125863872.png' },
-  { name: 'Sara Ali', role: 'Decor Specialist', image: '/images/wedding_setup_lawn_1777125850486.png' },
-  { name: 'Ali Raza', role: 'Operations Head', image: '/images/farmhouse_hero_day_1777125835860.png' },
+  { name: 'Ahmed Khan', role: 'Event Manager', image: '/images/pool-area.png' },
+  { name: 'Sara Ali', role: 'Decor Specialist', image: '/images/statue-horse.png' },
+  { name: 'Ali Raza', role: 'Operations Head', image: '/images/hero-front.png' },
 ];
 
 const About = () => {
@@ -70,7 +70,7 @@ const About = () => {
       <GlobalHero 
         title="About Us" 
         breadcrumb="Home / About" 
-        bgImage="/images/farmhouse_hero_day_1777125835860.png" 
+        bgImage="/images/hero-front.png" 
       />
 
       {/* Welcome Section */}
@@ -84,7 +84,7 @@ const About = () => {
                 loop 
                 muted 
                 playsInline
-                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                src="/farmhouse-video.mp4"
                 style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none' }}
               />
             </div>
@@ -154,8 +154,8 @@ const About = () => {
               </ul>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-               <img src="/images/wedding_setup_lawn_1777125850486.png" alt="Luxury 1" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px', marginTop: '40px' }} />
-               <img src="/images/picnic_family_pool_1777125863872.png" alt="Luxury 2" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px' }} />
+               <img src="/images/statue-horse.png" alt="Luxury 1" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px', marginTop: '40px' }} />
+               <img src="/images/pool-area.png" alt="Luxury 2" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px' }} />
             </div>
           </div>
         </div>

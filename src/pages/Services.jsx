@@ -14,7 +14,7 @@ const servicesData = [
     capacity: '20–100 people',
     facilities: ['BBQ area', 'Play area', 'Seating', 'Large Swimming Pool', 'Green Lawns'],
     desc: 'Perfect for family day-outs and casual gatherings. Enjoy our spacious green lawns, dedicated BBQ areas, and crystal-clear swimming pool designed for ultimate relaxation.',
-    image: '/images/picnic_family_pool_1777125863872.png',
+    image: '/images/pool-area.png',
     reverse: false
   },
   {
@@ -23,7 +23,7 @@ const servicesData = [
     capacity: '300–500 guests',
     facilities: ['Stage décor', 'Premium Lighting', 'Elegant Seating', 'Valet Parking', 'Bridal Room'],
     desc: 'Elegant outdoor wedding setups with customizable themes. Make your special day unforgettable with our premium floral arrangements, stunning stage designs, and top-tier hospitality.',
-    image: '/images/wedding_setup_lawn_1777125850486.png',
+    image: '/images/statue-horse.png',
     reverse: true
   },
   {
@@ -32,7 +32,7 @@ const servicesData = [
     capacity: '50–200 people',
     facilities: ['Customized Decor', 'DJ Setup Area', 'Poolside Seating', 'Catering Area'],
     desc: 'Celebrate birthdays, anniversaries, and milestones in a luxurious, private setting. Our team will help you customize the space to match your exact vision.',
-    image: '/images/farmhouse_hero_day_1777125835860.png',
+    image: '/images/hero-front.png',
     reverse: false
   },
   {
@@ -41,7 +41,7 @@ const servicesData = [
     capacity: '100–300 people',
     facilities: ['Presentation Area', 'Team Building Spaces', 'High-Speed Wi-Fi', 'Dining Setup'],
     desc: 'Take your team out of the office for a refreshing corporate retreat, annual dinner, or team-building exercise in our highly-equipped, peaceful farmhouse environment.',
-    image: '/images/wedding_setup_lawn_1777125850486.png',
+    image: '/images/statue-horse.png',
     reverse: true
   }
 ];
@@ -81,7 +81,7 @@ const Services = () => {
       <GlobalHero 
         title="Our Services" 
         breadcrumb="Home / Services" 
-        bgImage="/images/picnic_family_pool_1777125863872.png" 
+        bgImage="/images/pool-area.png" 
       />
 
       {/* Services List */}

@@ -5,7 +5,7 @@ import { ArrowRight } from 'lucide-react';
 import './Hero.css';
 
 // Using the AI generated image path we have in brain
-const heroImage = "/images/farmhouse_hero_day_1777125835860.png";
+const heroImage = "/images/hero-front.png";
 
 const Hero = () => {
   const heroRef = useRef(null);

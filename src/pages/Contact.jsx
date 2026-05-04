@@ -64,7 +64,7 @@ const Contact = () => {
       <GlobalHero 
         title="Contact Us" 
         breadcrumb="Home / Contact" 
-        bgImage="/images/wedding_setup_lawn_1777125850486.png" 
+        bgImage="/images/statue-horse.png" 
       />
 
       <div className="section">

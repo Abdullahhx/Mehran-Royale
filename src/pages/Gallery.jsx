@@ -8,12 +8,12 @@ gsap.registerPlugin(ScrollTrigger);
 const categories = ['All', 'Weddings', 'Events', 'Picnics'];
 
 const galleryItems = [
-  { id: 1, category: 'Weddings', image: '/images/wedding_setup_lawn_1777125850486.png', title: 'Elegant Floral Stage' },
-  { id: 2, category: 'Picnics', image: '/images/picnic_family_pool_1777125863872.png', title: 'Poolside Family Picnic' },
-  { id: 3, category: 'Events', image: '/images/farmhouse_hero_day_1777125835860.png', title: 'Corporate Retreat Setup' },
-  { id: 4, category: 'Weddings', image: '/images/wedding_setup_lawn_1777125850486.png', title: 'Night Time Lighting Setup' },
-  { id: 5, category: 'Events', image: '/images/farmhouse_hero_day_1777125835860.png', title: 'Private Birthday Gathering' },
-  { id: 6, category: 'Picnics', image: '/images/picnic_family_pool_1777125863872.png', title: 'Green Lawns Relaxation' },
+  { id: 1, category: 'Weddings', image: '/images/statue-horse.png', title: 'Elegant Floral Stage' },
+  { id: 2, category: 'Picnics', image: '/images/pool-area.png', title: 'Poolside Family Picnic' },
+  { id: 3, category: 'Events', image: '/images/hero-front.png', title: 'Corporate Retreat Setup' },
+  { id: 4, category: 'Weddings', image: '/images/statue-horse.png', title: 'Night Time Lighting Setup' },
+  { id: 5, category: 'Events', image: '/images/hero-front.png', title: 'Private Birthday Gathering' },
+  { id: 6, category: 'Picnics', image: '/images/pool-area.png', title: 'Green Lawns Relaxation' },
 ];
 
 const Gallery = () => {
@@ -38,7 +38,7 @@ const Gallery = () => {
       <GlobalHero 
         title="Gallery" 
         breadcrumb="Home / Gallery" 
-        bgImage="/images/farmhouse_hero_day_1777125835860.png" 
+        bgImage="/images/hero-front.png" 
       />
 
       <div className="section" style={{ textAlign: 'center' }}>
