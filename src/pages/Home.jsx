@@ -69,6 +69,19 @@ const Home = () => {
         stagger: 0.2,
         ease: 'power3.out'
       });
+
+      // Facilities Animation
+      gsap.from('.facility-card', {
+        scrollTrigger: {
+          trigger: '.facilities-section',
+          start: 'top 80%',
+        },
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: 'power2.out'
+      });
     }, mainRef);
     
     return () => ctx.revert();
@@ -126,6 +139,54 @@ const Home = () => {
           
           <div style={{ textAlign: 'center', marginTop: '50px' }}>
             <Link to="/services" className="btn btn-primary">View All Services</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Facilities Section */}
+      <section className="section facilities-section" style={{ backgroundColor: 'var(--color-secondary)' }}>
+        <div className="container">
+          <div className="section-header">
+            <span className="section-subtitle">Comfort & Luxury</span>
+            <h2>Accommodations & Facilities</h2>
+          </div>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
+            {/* Pool Room */}
+            <div className="facility-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', backgroundColor: 'var(--color-primary)' }}>
+              <img src="/images/room-pool.png" alt="Indoor Game Room" style={{ width: '100%', height: '240px', objectFit: 'cover' }} />
+              <div style={{ padding: '24px' }}>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Indoor Game Room</h3>
+                <p style={{ fontSize: '0.95rem', margin: 0 }}>A premium entertainment space featuring a professional snooker table.</p>
+              </div>
+            </div>
+            
+            {/* Lobby */}
+            <div className="facility-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', backgroundColor: 'var(--color-primary)' }}>
+              <img src="/images/room-lobby.png" alt="Luxurious Lobby" style={{ width: '100%', height: '240px', objectFit: 'cover' }} />
+              <div style={{ padding: '24px' }}>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Grand Lobby</h3>
+                <p style={{ fontSize: '0.95rem', margin: 0 }}>Elegant high-ceiling entrance with a classic wooden swing and chandelier.</p>
+              </div>
+            </div>
+
+            {/* Bedroom */}
+            <div className="facility-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', backgroundColor: 'var(--color-primary)' }}>
+              <img src="/images/room-bedroom.png" alt="Cozy Bedroom" style={{ width: '100%', height: '240px', objectFit: 'cover' }} />
+              <div style={{ padding: '24px' }}>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Premium Bedrooms</h3>
+                <p style={{ fontSize: '0.95rem', margin: 0 }}>Cozy, comfortable, and air-conditioned rooms for a relaxing stay.</p>
+              </div>
+            </div>
+
+            {/* Gazebo */}
+            <div className="facility-card" style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)', backgroundColor: 'var(--color-primary)' }}>
+              <img src="/images/outdoor-gazebo.png" alt="Outdoor Gazebo" style={{ width: '100%', height: '240px', objectFit: 'cover' }} />
+              <div style={{ padding: '24px' }}>
+                <h3 style={{ fontSize: '1.3rem', marginBottom: '10px' }}>Outdoor Gazebo</h3>
+                <p style={{ fontSize: '0.95rem', margin: 0 }}>A beautiful elevated seating area with panoramic views of the lush lawns.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
