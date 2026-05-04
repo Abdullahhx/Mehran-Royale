@@ -9,9 +9,9 @@ const galleryImages = [
   { id: 1, category: 'Picnics', src: '/images/pool-area.png', title: 'Family Picnic Pool' },
   { id: 2, category: 'Weddings', src: '/images/statue-horse.png', title: 'Wedding Setup' },
   { id: 3, category: 'Events', src: '/images/hero-front.png', title: 'Farmhouse Exterior' },
-  { id: 4, category: 'Picnics', src: '/images/pool-area.png', title: 'Poolside Relaxing' },
-  { id: 5, category: 'Weddings', src: '/images/statue-horse.png', title: 'Night Event Setup' },
-  { id: 6, category: 'Events', src: '/images/hero-front.png', title: 'Lawn Area' }
+  { id: 4, category: 'Events', src: '/images/gallery-bedroom.png', title: 'Luxury Bedroom' },
+  { id: 5, category: 'Events', src: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
+  { id: 6, category: 'Events', src: '/images/gallery-lobby.png', title: 'Grand Lobby' }
 ];
 
 const GallerySection = () => {
