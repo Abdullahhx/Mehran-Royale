@@ -87,18 +87,15 @@ const Home = () => {
             We provide a premium farmhouse experience designed for family picnics, weddings, and private events. 
             With spacious green lawns, elegant setups, and top-tier service, we ensure every event becomes memorable.
           </p>
-          <div className="welcome-text" style={{ display: 'flex', justifyContent: 'center' }}>
-            <iframe 
-              src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F995866406233391&show_text=false" 
-              width="314" 
-              height="560" 
-              style={{ border: 'none', overflow: 'hidden', borderRadius: '12px', boxShadow: 'var(--shadow-md)' }} 
-              scrolling="no" 
-              frameBorder="0" 
-              allowFullScreen={true} 
-              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" 
-            ></iframe>
-          </div>
+          <video 
+            className="welcome-text"
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            src="/farmhouse-video.mp4"
+            style={{ width: '100%', height: '400px', objectFit: 'cover', borderRadius: '12px', boxShadow: 'var(--shadow-md)', pointerEvents: 'none' }}
+          />
         </div>
       </section>
 
