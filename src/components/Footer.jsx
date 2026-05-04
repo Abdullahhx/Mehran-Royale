@@ -16,11 +16,7 @@ const Footer = () => {
       <div className="container footer-container">
         <div className="footer-col">
           <Link to="/" className="footer-logo" style={{ display: 'flex', alignItems: 'center', gap: '15px', textTransform: 'none', letterSpacing: 'normal' }}>
-            <img src="/favicon.svg" alt="Mehran Royale Logo" style={{ width: '45px', height: '45px' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-              <div style={{ fontSize: '1.5rem', fontWeight: 'bold', lineHeight: '1', letterSpacing: '2px', fontFamily: 'var(--font-heading)' }}>MEHRAN ROYALE</div>
-              <div style={{ fontSize: '0.65rem', fontWeight: '500', letterSpacing: '2px', marginTop: '4px', fontFamily: 'var(--font-body)', opacity: '0.9' }}>FARMHOUSE & EVENTS</div>
-            </div>
+            <img src="/mehran_royale_black.png" alt="Mehran Royale Logo" style={{ width: '220px', height: 'auto', objectFit: 'contain' }} />
           </Link>
           <p className="footer-desc">
             Experience unforgettable moments at the perfect farmhouse destination.

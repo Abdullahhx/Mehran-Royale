@@ -36,11 +36,7 @@ const Navbar = () => {
     <header className={`navbar ${scrolled || !isHome ? 'nav-scrolled glass' : ''}`}>
       <div className="container nav-container">
         <NavLink to="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: '15px', textTransform: 'none', letterSpacing: 'normal', textDecoration: 'none', color: 'inherit' }} onClick={() => setIsOpen(false)}>
-          <img src="/favicon.svg" alt="Mehran Royale Logo" style={{ width: '45px', height: '45px', objectFit: 'contain' }} />
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', lineHeight: '1', letterSpacing: '2px', fontFamily: 'var(--font-heading)' }}>MEHRAN ROYALE</div>
-            <div style={{ fontSize: '0.65rem', fontWeight: '500', letterSpacing: '2px', marginTop: '4px', fontFamily: 'var(--font-body)', opacity: '0.9' }}>FARMHOUSE & EVENTS</div>
-          </div>
+          <img src={scrolled || !isHome ? "/mehran_royale_black.png" : "/logo MR.png"} alt="Mehran Royale Logo" style={{ width: '220px', height: 'auto', objectFit: 'contain' }} />
         </NavLink>
 
         <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>
