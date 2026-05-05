@@ -8,12 +8,14 @@ gsap.registerPlugin(ScrollTrigger);
 const categories = ['All', 'Farm House', 'Weddings', 'Picnics'];
 
 const galleryItems = [
-  { id: 1, category: 'Weddings', image: '/images/statue-horse.png', title: 'Elegant Floral Stage' },
-  { id: 2, category: 'Picnics', image: '/images/pool-area.png', title: 'Poolside Family Picnic' },
-  { id: 3, category: 'Farm House', image: '/images/hero-front.png', title: 'Corporate Retreat Setup' },
-  { id: 4, category: 'Weddings', image: '/images/statue-horse.png', title: 'Night Time Lighting Setup' },
-  { id: 5, category: 'Farm House', image: '/images/hero-front.png', title: 'Private Birthday Gathering' },
-  { id: 6, category: 'Picnics', image: '/images/pool-area.png', title: 'Green Lawns Relaxation' },
+  { id: 1, category: 'Farm House', image: '/images/hero-front.png', title: 'Farmhouse Exterior' },
+  { id: 2, category: 'Farm House', image: '/images/gallery-bedroom.png', title: 'Luxury Bedroom' },
+  { id: 3, category: 'Farm House', image: '/images/gallery-lobby.png', title: 'Grand Lobby' },
+  { id: 4, category: 'Farm House', image: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
+  { id: 5, category: 'Farm House', image: '/images/pool-area.png', title: 'Swimming Pool Area' },
+  { id: 6, category: 'Weddings', image: '/images/wedding.png', title: 'Wedding Setup' },
+  { id: 7, category: 'Picnics', image: '/images/statue-horse.png', title: 'Statue Horse' },
+  { id: 8, category: 'Picnics', image: '/images/picnic-booking.png', title: 'Picnic Booking' }
 ];
 
 const Gallery = () => {
@@ -65,26 +67,15 @@ const Gallery = () => {
             gap: '40px' 
           }}>
             {filteredItems.map(item => (
-              <div key={item.id} className="gallery-item" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', height: '300px', cursor: 'pointer' }}>
-                <img 
-                  src={item.image} 
-                  alt={item.title} 
-                  style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
-                  onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
-                  onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
-                />
-                <div style={{
-                  position: 'absolute',
-                  bottom: '0',
-                  left: '0',
-                  width: '100%',
-                  padding: '20px',
-                  background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
-                  color: 'white',
-                  textAlign: 'left'
-                }}>
-                  <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', color: 'var(--color-accent)', fontWeight: '600' }}>{item.category}</span>
-                  <h4 style={{ fontSize: '1.2rem', margin: '0' }}>{item.title}</h4>
+              <div key={item.id} className="gallery-item" style={{ backgroundColor: 'var(--color-gray)', padding: '15px', borderRadius: '12px', height: '300px', cursor: 'pointer', boxShadow: 'var(--shadow-sm)' }}>
+                <div style={{ width: '100%', height: '100%', overflow: 'hidden', borderRadius: '8px' }}>
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }} 
+                    onMouseOver={(e) => e.target.style.transform = 'scale(1.1)'}
+                    onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
+                  />
                 </div>
               </div>
             ))}

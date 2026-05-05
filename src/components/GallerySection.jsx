@@ -6,12 +6,14 @@ import './GallerySection.css';
 const categories = ['All', 'Farm House', 'Weddings', 'Picnics'];
 
 const galleryImages = [
-  { id: 1, category: 'Picnics', src: '/images/pool-area.png', title: 'Family Picnic Pool' },
-  { id: 2, category: 'Weddings', src: '/images/statue-horse.png', title: 'Wedding Setup' },
-  { id: 3, category: 'Farm House', src: '/images/hero-front.png', title: 'Farmhouse Exterior' },
-  { id: 4, category: 'Farm House', src: '/images/gallery-bedroom.png', title: 'Luxury Bedroom' },
-  { id: 5, category: 'Farm House', src: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
-  { id: 6, category: 'Farm House', src: '/images/gallery-lobby.png', title: 'Grand Lobby' }
+  { id: 1, category: 'Farm House', src: '/images/hero-front.png', title: 'Farmhouse Exterior' },
+  { id: 2, category: 'Farm House', src: '/images/gallery-bedroom.png', title: 'Luxury Bedroom' },
+  { id: 3, category: 'Farm House', src: '/images/gallery-lobby.png', title: 'Grand Lobby' },
+  { id: 4, category: 'Farm House', src: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
+  { id: 5, category: 'Farm House', src: '/images/pool-area.png', title: 'Swimming Pool Area' },
+  { id: 6, category: 'Weddings', src: '/images/wedding.png', title: 'Wedding Setup' },
+  { id: 7, category: 'Picnics', src: '/images/statue-horse.png', title: 'Statue Horse' },
+  { id: 8, category: 'Picnics', src: '/images/picnic-booking.png', title: 'Picnic Booking' }
 ];
 
 const GallerySection = () => {
