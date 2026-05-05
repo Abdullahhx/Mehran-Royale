@@ -164,11 +164,11 @@ const Contact = () => {
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                       <div>
                         <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Name *</label>
-                        <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="John Doe" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
+                        <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Mehran" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
                       </div>
                       <div>
                         <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Phone/Email *</label>
-                        <input type="text" name="contactInfo" value={formData.contactInfo} onChange={handleChange} required placeholder="john@example.com" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
+                        <input type="text" name="contactInfo" value={formData.contactInfo} onChange={handleChange} required placeholder="mehran@example.com" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
                       </div>
                     </div>
                     <div>
