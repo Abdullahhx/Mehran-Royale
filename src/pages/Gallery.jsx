@@ -5,14 +5,14 @@ import GlobalHero from '../components/GlobalHero';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const categories = ['All', 'Weddings', 'Events', 'Picnics'];
+const categories = ['All', 'Farm House', 'Weddings', 'Picnics'];
 
 const galleryItems = [
   { id: 1, category: 'Weddings', image: '/images/statue-horse.png', title: 'Elegant Floral Stage' },
   { id: 2, category: 'Picnics', image: '/images/pool-area.png', title: 'Poolside Family Picnic' },
-  { id: 3, category: 'Events', image: '/images/hero-front.png', title: 'Corporate Retreat Setup' },
+  { id: 3, category: 'Farm House', image: '/images/hero-front.png', title: 'Corporate Retreat Setup' },
   { id: 4, category: 'Weddings', image: '/images/statue-horse.png', title: 'Night Time Lighting Setup' },
-  { id: 5, category: 'Events', image: '/images/hero-front.png', title: 'Private Birthday Gathering' },
+  { id: 5, category: 'Farm House', image: '/images/hero-front.png', title: 'Private Birthday Gathering' },
   { id: 6, category: 'Picnics', image: '/images/pool-area.png', title: 'Green Lawns Relaxation' },
 ];
 
@@ -62,7 +62,7 @@ const Gallery = () => {
           <div style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-            gap: '20px' 
+            gap: '40px' 
           }}>
             {filteredItems.map(item => (
               <div key={item.id} className="gallery-item" style={{ position: 'relative', overflow: 'hidden', borderRadius: '12px', height: '300px', cursor: 'pointer' }}>

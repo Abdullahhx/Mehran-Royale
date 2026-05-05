@@ -3,15 +3,15 @@ import gsap from 'gsap';
 import { X, ZoomIn } from 'lucide-react';
 import './GallerySection.css';
 
-const categories = ['All', 'Weddings', 'Events', 'Picnics'];
+const categories = ['All', 'Farm House', 'Weddings', 'Picnics'];
 
 const galleryImages = [
   { id: 1, category: 'Picnics', src: '/images/pool-area.png', title: 'Family Picnic Pool' },
   { id: 2, category: 'Weddings', src: '/images/statue-horse.png', title: 'Wedding Setup' },
-  { id: 3, category: 'Events', src: '/images/hero-front.png', title: 'Farmhouse Exterior' },
-  { id: 4, category: 'Events', src: '/images/gallery-bedroom.png', title: 'Luxury Bedroom' },
-  { id: 5, category: 'Events', src: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
-  { id: 6, category: 'Events', src: '/images/gallery-lobby.png', title: 'Grand Lobby' }
+  { id: 3, category: 'Farm House', src: '/images/hero-front.png', title: 'Farmhouse Exterior' },
+  { id: 4, category: 'Farm House', src: '/images/gallery-bedroom.png', title: 'Luxury Bedroom' },
+  { id: 5, category: 'Farm House', src: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
+  { id: 6, category: 'Farm House', src: '/images/gallery-lobby.png', title: 'Grand Lobby' }
 ];
 
 const GallerySection = () => {
