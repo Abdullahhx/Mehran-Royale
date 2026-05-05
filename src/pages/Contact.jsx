@@ -108,7 +108,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '5px' }}>Phone</strong>
-                      <span style={{ color: 'var(--color-text-light)' }}>+92 300 1234567</span>
+                      <span style={{ color: 'var(--color-text-light)' }}>+92 321 3862733</span>
                     </div>
                   </li>
 
@@ -118,7 +118,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '5px' }}>Email</strong>
-                      <span style={{ color: 'var(--color-text-light)' }}>info@farmhouse.com</span>
+                      <span style={{ color: 'var(--color-text-light)' }}>info@mehranroyale.com</span>
                     </div>
                   </li>
 

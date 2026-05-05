@@ -58,11 +58,11 @@ const Footer = () => {
           <ul className="footer-contact">
             <li>
               <Phone size={18} className="footer-icon" />
-              <span>+92 300 1234567</span>
+              <span>+92 321 3862733</span>
             </li>
             <li>
               <Mail size={18} className="footer-icon" />
-              <span>info@farmhouse.com</span>
+              <span>info@mehranroyale.com</span>
             </li>
             <li>
               <MapPin size={18} className="footer-icon" />
