@@ -162,12 +162,17 @@ const Home = () => {
       {/* Map Section */}
       <section className="section map-section" style={{ backgroundColor: 'var(--color-primary)' }}>
         <div className="container">
-          <div style={{ backgroundColor: '#e5e3df', borderRadius: '16px', overflow: 'hidden', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: 'var(--shadow-md)', position: 'relative' }}>
-            <div style={{ textAlign: 'center', color: 'var(--color-text-light)' }}>
-              <MapPin size={48} style={{ margin: '0 auto 15px auto', color: 'var(--color-text)' }} />
-              <h3>Interactive Google Map</h3>
-              <p>Location: Karachi</p>
-            </div>
+          <div style={{ borderRadius: '16px', overflow: 'hidden', height: '400px', boxShadow: 'var(--shadow-md)', position: 'relative' }}>
+            <iframe 
+              src="https://maps.google.com/maps?q=24.9289984,67.2568227&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen="" 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Mehran Royal Farm House Location"
+            ></iframe>
           </div>
         </div>
       </section>
