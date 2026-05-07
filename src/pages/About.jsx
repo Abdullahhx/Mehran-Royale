@@ -43,7 +43,6 @@ const About = () => {
         ease: 'power2.out'
       });
 
-      });
     }, containerRef);
     
     return () => ctx.revert();
@@ -145,10 +144,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      </div>
-
-    </div>
 
     </div>
   );
