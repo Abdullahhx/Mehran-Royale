@@ -12,12 +12,12 @@ const services = [
   {
     title: 'Picnic Bookings',
     desc: 'Perfect for family day-outs and casual gatherings with a huge swimming pool.',
-    image: '/images/picnic-booking.png'
+    image: '/images/picnic booking.png'
   },
   {
     title: 'Weddings',
     desc: 'Elegant outdoor wedding setups with customizable themes on lush green lawns.',
-    image: '/images/wedding.png'
+    image: '/images/Screenshot (53).png'
   },
   {
     title: 'Private Parties',

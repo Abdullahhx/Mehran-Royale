@@ -11,12 +11,12 @@ const galleryImages = [
   { id: 3, category: 'Farm House', src: '/images/gallery-lobby.png', title: 'Grand Lobby' },
   { id: 4, category: 'Farm House', src: '/images/gallery-view.png', title: 'Beautiful Outdoor View' },
   { id: 5, category: 'Farm House', src: '/images/pool-area.png', title: 'Swimming Pool Area' },
-  { id: 6, category: 'Weddings', src: '/images/wedding.png', title: 'Wedding Setup' },
+  { id: 6, category: 'Weddings', src: '/images/Screenshot (53).png', title: 'Wedding Setup' },
   { id: 7, category: 'Weddings', src: '/images/wedding-2.png', title: 'Beautiful Wedding Decor' },
   { id: 8, category: 'Weddings', src: '/images/wedding-3.png', title: 'Wedding Ceremony Area' },
   { id: 9, category: 'Weddings', src: '/images/wedding-4.jpg', title: 'Night Wedding View' },
   { id: 10, category: 'Picnics', src: '/images/statue-horse.png', title: 'Statue Horse' },
-  { id: 11, category: 'Picnics', src: '/images/picnic-booking.png', title: 'Picnic Booking' }
+  { id: 11, category: 'Picnics', src: '/images/picnic booking.png', title: 'Picnic Booking' }
 ];
 
 const GallerySection = () => {
