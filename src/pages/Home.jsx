@@ -12,17 +12,20 @@ const services = [
   {
     title: 'Picnic Bookings',
     desc: 'Perfect for family day-outs and casual gatherings with a huge swimming pool.',
-    image: '/images/picnic booking.png'
+    image: '/images/picnic booking.png',
+    link: '/services#picnics'
   },
   {
     title: 'Weddings',
     desc: 'Elegant outdoor wedding setups with customizable themes on lush green lawns.',
-    image: '/images/Screenshot (53).png'
+    image: '/images/Screenshot (53).png',
+    link: '/services#weddings'
   },
   {
     title: 'Private Parties',
     desc: 'Exclusive private events tailored to your needs in a luxurious setting.',
-    image: '/images/pool-area.png'
+    image: '/images/pool-area.png',
+    link: '/services#private'
   }
 ];
 
@@ -116,7 +119,7 @@ const Home = () => {
                 <div style={{ padding: '30px' }}>
                   <h3 style={{ fontSize: '1.5rem' }}>{service.title}</h3>
                   <p>{service.desc}</p>
-                  <Link to="/services" style={{ color: 'var(--color-accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                  <Link to={service.link} style={{ color: 'var(--color-accent)', fontWeight: '600', display: 'flex', alignItems: 'center', gap: '5px' }}>
                     Learn More <ArrowRight size={16} />
                   </Link>
                 </div>

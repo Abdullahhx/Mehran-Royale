@@ -46,10 +46,10 @@ const Footer = () => {
         <div className="footer-col">
           <h4 className="footer-heading">Our Services</h4>
           <ul className="footer-links">
-            <li><Link to="/services">Picnic Bookings</Link></li>
-            <li><Link to="/services">Private Events</Link></li>
-            <li><Link to="/services">Weddings</Link></li>
-            <li><Link to="/services">Corporate Gatherings</Link></li>
+            <li><Link to="/services#picnics">Picnic Bookings</Link></li>
+            <li><Link to="/services#private">Private Events</Link></li>
+            <li><Link to="/services#weddings">Weddings</Link></li>
+            <li><Link to="/services#corporate">Corporate Gatherings</Link></li>
           </ul>
         </div>
 
