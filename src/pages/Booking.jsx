@@ -13,7 +13,7 @@ const Booking = () => {
     guests: '',
     message: ''
   });
-  
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [bookedDates, setBookedDates] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -39,7 +39,7 @@ const Booking = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
-    
+
     if (!selectedDate) {
       setErrorMsg('Please select a date.');
       return;
@@ -52,14 +52,14 @@ const Booking = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      
+
       const data = await response.json();
-      
+
       if (response.ok) {
         setSubmitted(true);
         // Refresh booked dates so the newly booked date is blocked immediately
         setBookedDates([...bookedDates, selectedDate]);
-        
+
         setTimeout(() => {
           setSubmitted(false);
           setFormData({ name: '', phone: '', eventType: 'Picnic', guests: '', message: '' });
@@ -80,42 +80,42 @@ const Booking = () => {
 
   return (
     <div style={{ backgroundColor: 'var(--color-gray)', minHeight: '100vh' }}>
-      
-      <GlobalHero 
-        title="Request a Booking" 
-        breadcrumb="Home / Booking" 
-        bgImage="/images/pool-area.png" 
+
+      <GlobalHero
+        title="Request a Booking"
+        breadcrumb="Home / Booking"
+        bgImage="/images/pool-area.png"
       />
 
       <div className="section">
         <div className="container" style={{ maxWidth: '1000px' }}>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '40px', backgroundColor: 'var(--color-primary)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
-            
+
             {/* Contact Info Sidebar */}
             <div style={{ backgroundColor: 'var(--color-accent-dark)', color: 'white', padding: '40px' }}>
               <h3 style={{ fontSize: '1.8rem', color: 'white', marginBottom: '30px' }}>Contact Information</h3>
               <p style={{ color: 'rgba(255,255,255,0.8)', marginBottom: '40px' }}>
                 Have urgent questions? Reach out to us directly through WhatsApp or a phone call.
               </p>
-              
+
               <ul style={{ listStyle: 'none', padding: 0 }}>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px', fontSize: '1.1rem' }}>
                   <Phone size={24} style={{ color: 'var(--color-accent-light)' }} />
-                  +92 300 1234567
+                  +92 321 3862733
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px', fontSize: '1.1rem' }}>
                   <Mail size={24} style={{ color: 'var(--color-accent-light)' }} />
-                  info@farmhouse.com
+                  info@mehranroyale.com
                 </li>
                 <li style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '25px', fontSize: '1.1rem' }}>
                   <MapPin size={24} style={{ color: 'var(--color-accent-light)' }} />
                   Karachi, Pakistan
                 </li>
               </ul>
-              
+
               <div style={{ marginTop: '50px' }}>
-                <a href="https://wa.me/923001234567" target="_blank" rel="noreferrer" style={{ display: 'inline-block', backgroundColor: '#25D366', color: 'white', padding: '12px 24px', borderRadius: '8px', fontWeight: 'bold' }}>
+                <a href="https://wa.me/923213862733" target="_blank" rel="noreferrer" style={{ display: 'inline-block', backgroundColor: '#25D366', color: 'white', padding: '12px 24px', borderRadius: '8px', fontWeight: 'bold' }}>
                   Chat on WhatsApp
                 </a>
               </div>
@@ -133,12 +133,12 @@ const Booking = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
-                  
+
                   <div style={{ gridColumn: '1 / -1' }}>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Full Name *</label>
-                    <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="John Doe" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
+                    <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Mehran" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
                   </div>
-                  
+
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Phone Number *</label>
                     <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} placeholder="+92 3XX XXXXXXX" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
@@ -156,7 +156,7 @@ const Booking = () => {
 
                   <div>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Preferred Date *</label>
-                    <DatePicker 
+                    <DatePicker
                       selected={selectedDate}
                       onChange={(date) => setSelectedDate(date)}
                       excludeDates={bookedDates}
@@ -190,7 +190,7 @@ const Booking = () => {
                 </form>
               )}
             </div>
-            
+
           </div>
         </div>
       </div>
