@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import nodemailer from 'nodemailer';
 
 import Contact from './models/Contact.js';
 import Booking from './models/Booking.js';
@@ -11,6 +12,51 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Email Transporter
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  }
+});
+
+const sendEmailNotification = async (type, data) => {
+  // Check if email config exists
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.log('Email configuration missing, skipping notification.');
+    return;
+  }
+
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_TO || process.env.EMAIL_USER,
+    subject: `Mehran Royale - New ${type}: ${data.name}`,
+    text: `
+      You have received a new ${type.toLowerCase()} request.
+
+      DETAILS:
+      ---------------------------------
+      Name: ${data.name}
+      ${type === 'Booking' ? 'Phone' : 'Contact'}: ${data.phone || data.contactInfo}
+      ${type === 'Booking' ? `Event Type: ${data.eventType}` : `Subject: ${data.subject}`}
+      ${type === 'Booking' ? `Date: ${new Date(data.date).toLocaleDateString()}` : ''}
+      ${type === 'Booking' ? `Guests: ${data.guests}` : ''}
+      Message: ${data.message}
+      ---------------------------------
+      
+      This is an automated notification from the Mehran Royale website.
+    `
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    console.log(`${type} email notification sent.`);
+  } catch (error) {
+    console.error(`Error sending ${type} email:`, error);
+  }
+};
 
 // Database Connection (Serverless optimized)
 let cachedDb = null;
@@ -39,6 +85,10 @@ app.post('/api/contact', async (req, res) => {
     }
     const newContact = new Contact({ name, contactInfo, subject, message });
     await newContact.save();
+    
+    // Send email notification in background
+    sendEmailNotification('Contact Form', { name, contactInfo, subject, message });
+
     res.status(201).json({ message: 'Contact message sent successfully!' });
   } catch (error) {
     res.status(500).json({ error: 'Server error while submitting contact form.' });
@@ -70,6 +120,10 @@ app.post('/api/booking', async (req, res) => {
 
     const newBooking = new Booking({ name, phone, eventType, date, guests, message });
     await newBooking.save();
+
+    // Send email notification in background
+    sendEmailNotification('Booking', { name, phone, eventType, date, guests, message });
+
     res.status(201).json({ message: 'Booking request submitted successfully!' });
   } catch (error) {
     res.status(500).json({ error: 'Server error while submitting booking.' });
