@@ -13,11 +13,6 @@ const amenities = [
   { icon: <Shield size={32} />, title: 'Secure Environment', desc: '24/7 security for your peace of mind.' },
 ];
 
-const team = [
-  { name: 'Ahmed Khan', role: 'Event Manager', image: '/images/pool-area.png' },
-  { name: 'Sara Ali', role: 'Decor Specialist', image: '/images/statue-horse.png' },
-  { name: 'Ali Raza', role: 'Operations Head', image: '/images/hero-front.png' },
-];
 
 const About = () => {
   const containerRef = useRef(null);
@@ -48,16 +43,6 @@ const About = () => {
         ease: 'power2.out'
       });
 
-      gsap.from('.team-card', {
-        scrollTrigger: {
-          trigger: '.about-team',
-          start: 'top 80%',
-        },
-        y: 40,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'power2.out'
       });
     }, containerRef);
     
@@ -161,27 +146,9 @@ const About = () => {
         </div>
       </div>
 
-      {/* Team Section */}
-      <div className="section about-team" style={{ backgroundColor: 'var(--color-gray)' }}>
-        <div className="container" style={{ textAlign: 'center' }}>
-          <span style={{ display: 'block', fontSize: '1rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600', marginBottom: '15px' }}>The Experts</span>
-          <h2 style={{ fontSize: '3rem', marginBottom: '60px' }}>Meet Our Team</h2>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '40px' }}>
-            {team.map((member, i) => (
-              <div key={i} className="team-card" style={{ backgroundColor: 'var(--color-primary)', borderRadius: '12px', overflow: 'hidden', boxShadow: 'var(--shadow-sm)' }}>
-                <div style={{ height: '300px', overflow: 'hidden' }}>
-                  <img src={member.image} alt={member.name} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(50%)' }} />
-                </div>
-                <div style={{ padding: '30px' }}>
-                  <h3 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{member.name}</h3>
-                  <p style={{ color: 'var(--color-accent)', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
+
+    </div>
 
     </div>
   );
