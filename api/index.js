@@ -86,8 +86,8 @@ app.post('/api/contact', async (req, res) => {
     const newContact = new Contact({ name, contactInfo, subject, message });
     await newContact.save();
     
-    // Send email notification in background
-    sendEmailNotification('Contact Form', { name, contactInfo, subject, message });
+    // Wait for email notification to finish
+    await sendEmailNotification('Contact Form', { name, contactInfo, subject, message });
 
     res.status(201).json({ message: 'Contact message sent successfully!' });
   } catch (error) {
@@ -121,8 +121,8 @@ app.post('/api/booking', async (req, res) => {
     const newBooking = new Booking({ name, phone, eventType, date, guests, message });
     await newBooking.save();
 
-    // Send email notification in background
-    sendEmailNotification('Booking', { name, phone, eventType, date, guests, message });
+    // Wait for email notification to finish
+    await sendEmailNotification('Booking', { name, phone, eventType, date, guests, message });
 
     res.status(201).json({ message: 'Booking request submitted successfully!' });
   } catch (error) {
