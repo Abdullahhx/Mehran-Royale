@@ -247,7 +247,7 @@ const Admin = () => {
                     ))
                   )}
                 </div>
-              ) : (
+              ) : activeTab === 'contacts' ? (
                 <div style={{ display: 'grid', gap: '20px' }}>
                   {contacts.length === 0 ? <p>No inquiries found.</p> : (
                     contacts.map(contact => (
