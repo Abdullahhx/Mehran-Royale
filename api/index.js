@@ -6,6 +6,7 @@ import nodemailer from 'nodemailer';
 
 import Contact from './models/Contact.js';
 import Booking from './models/Booking.js';
+import Review from './models/Review.js';
 
 const app = express();
 
@@ -144,6 +145,41 @@ app.get('/api/booking/booked-dates', async (req, res) => {
   }
 });
 
+// 4. Submit Review
+app.post('/api/reviews', async (req, res) => {
+  try {
+    await connectDB();
+    const { name, rating, message } = req.body;
+    if (!name || !rating || !message) {
+      return res.status(400).json({ error: 'Please provide all required fields.' });
+    }
+    const newReview = new Review({ author_name: name, rating, text: message });
+    await newReview.save();
+    
+    await sendEmailNotification('Review', { 
+      name, 
+      contactInfo: `Rating: ${rating} Stars`, 
+      subject: 'New Guest Review', 
+      message 
+    });
+    
+    res.status(201).json({ message: 'Review submitted successfully!' });
+  } catch (error) {
+    res.status(500).json({ error: 'Server error while submitting review.' });
+  }
+});
+
+// 5. Get Approved Reviews (Public)
+app.get('/api/reviews', async (req, res) => {
+  try {
+    await connectDB();
+    const reviews = await Review.find({ is_approved: true }).sort({ createdAt: -1 });
+    res.status(200).json(reviews);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error while fetching reviews.' });
+  }
+});
+
 // --- ADMIN ROUTES ---
 
 app.get('/api/admin/bookings', async (req, res) => {
@@ -163,6 +199,16 @@ app.get('/api/admin/contacts', async (req, res) => {
     res.status(200).json(contacts);
   } catch (error) {
     res.status(500).json({ error: 'Server error while fetching contacts.' });
+  }
+});
+
+app.get('/api/admin/reviews', async (req, res) => {
+  try {
+    await connectDB();
+    const reviews = await Review.find().sort({ createdAt: -1 });
+    res.status(200).json(reviews);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error while fetching reviews.' });
   }
 });
 
@@ -194,6 +240,27 @@ app.delete('/api/admin/contacts/:id', async (req, res) => {
     res.status(200).json({ message: 'Contact deleted.' });
   } catch (error) {
     res.status(500).json({ error: 'Server error while deleting contact.' });
+  }
+});
+
+app.patch('/api/admin/reviews/:id', async (req, res) => {
+  try {
+    await connectDB();
+    const { is_approved } = req.body;
+    const updatedReview = await Review.findByIdAndUpdate(req.params.id, { is_approved }, { new: true });
+    res.status(200).json(updatedReview);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error while updating review.' });
+  }
+});
+
+app.delete('/api/admin/reviews/:id', async (req, res) => {
+  try {
+    await connectDB();
+    await Review.findByIdAndDelete(req.params.id);
+    res.status(200).json({ message: 'Review deleted.' });
+  } catch (error) {
+    res.status(500).json({ error: 'Server error while deleting review.' });
   }
 });
 

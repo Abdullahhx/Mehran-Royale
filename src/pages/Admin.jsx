@@ -7,6 +7,7 @@ const Admin = () => {
   const [activeTab, setActiveTab] = useState('bookings');
   const [bookings, setBookings] = useState([]);
   const [contacts, setContacts] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -16,16 +17,19 @@ const Admin = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      const [bookingsRes, contactsRes] = await Promise.all([
+      const [bookingsRes, contactsRes, reviewsRes] = await Promise.all([
         fetch(`${API_URL}/api/admin/bookings`),
-        fetch(`${API_URL}/api/admin/contacts`)
+        fetch(`${API_URL}/api/admin/contacts`),
+        fetch(`${API_URL}/api/admin/reviews`)
       ]);
       
-      if (bookingsRes.ok && contactsRes.ok) {
+      if (bookingsRes.ok && contactsRes.ok && reviewsRes.ok) {
         const bookingsData = await bookingsRes.json();
         const contactsData = await contactsRes.json();
+        const reviewsData = await reviewsRes.json();
         setBookings(bookingsData);
         setContacts(contactsData);
+        setReviews(reviewsData);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -74,6 +78,35 @@ const Admin = () => {
       }
     } catch (error) {
       console.error('Error deleting contact:', error);
+    }
+  };
+
+  const toggleReviewApproval = async (id, is_approved) => {
+    try {
+      const response = await fetch(`${API_URL}/api/admin/reviews/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ is_approved })
+      });
+      if (response.ok) {
+        fetchData();
+      }
+    } catch (error) {
+      console.error('Error updating review:', error);
+    }
+  };
+
+  const deleteReview = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this review?')) return;
+    try {
+      const response = await fetch(`${API_URL}/api/admin/reviews/${id}`, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        fetchData();
+      }
+    } catch (error) {
+      console.error('Error deleting review:', error);
     }
   };
 
@@ -126,6 +159,21 @@ const Admin = () => {
               }}
             >
               Inquiries ({contacts.length})
+            </button>
+            <button 
+              onClick={() => setActiveTab('reviews')}
+              style={{ 
+                padding: '15px 30px', 
+                backgroundColor: 'transparent', 
+                border: 'none', 
+                borderBottom: activeTab === 'reviews' ? '3px solid var(--color-accent)' : '3px solid transparent',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                color: activeTab === 'reviews' ? 'var(--color-text)' : 'var(--color-text-light)',
+                cursor: 'pointer'
+              }}
+            >
+              Reviews ({reviews.length})
             </button>
           </div>
 
@@ -225,6 +273,53 @@ const Admin = () => {
                         <div style={{ padding: '15px', backgroundColor: 'var(--color-gray)', borderRadius: '8px' }}>
                           <div style={{ fontWeight: '600', marginBottom: '5px' }}>{contact.subject || 'General Inquiry'}</div>
                           <div style={{ color: 'var(--color-text)' }}>{contact.message}</div>
+                        </div>
+                      </div>
+                    ))
+                  )}
+                </div>
+              ) : (
+                <div style={{ display: 'grid', gap: '20px' }}>
+                  {reviews.length === 0 ? <p>No reviews found.</p> : (
+                    reviews.map(review => (
+                      <div key={review._id} style={{ backgroundColor: 'var(--color-primary)', padding: '25px', borderRadius: '12px', boxShadow: 'var(--shadow-sm)' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
+                          <div>
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px' }}>
+                              <User size={18} color="var(--color-accent)" />
+                              <strong style={{ fontSize: '1.1rem' }}>{review.author_name}</strong>
+                              <span style={{ backgroundColor: 'var(--color-gray)', padding: '2px 8px', borderRadius: '12px', fontSize: '0.85rem' }}>{review.rating} Stars</span>
+                            </div>
+                            <div style={{ fontSize: '0.85rem', color: 'var(--color-text-light)' }}>
+                              {new Date(review.createdAt).toLocaleString()}
+                            </div>
+                          </div>
+                          <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+                            <span style={{ 
+                              padding: '6px 12px', 
+                              borderRadius: '20px', 
+                              fontSize: '0.85rem', 
+                              fontWeight: '600',
+                              backgroundColor: review.is_approved ? '#dcfce7' : '#fef9c3',
+                              color: review.is_approved ? '#166534' : '#854d0e',
+                              textTransform: 'uppercase'
+                            }}>
+                              {review.is_approved ? 'Approved' : 'Pending'}
+                            </span>
+                            <button 
+                              onClick={() => toggleReviewApproval(review._id, !review.is_approved)} 
+                              title={review.is_approved ? "Unapprove" : "Approve"}
+                              style={{ padding: '8px', borderRadius: '8px', border: review.is_approved ? '1px solid #fef9c3' : '1px solid #dcfce7', backgroundColor: review.is_approved ? '#fffbeb' : '#f0fdf4', color: review.is_approved ? '#d97706' : '#16a34a', cursor: 'pointer' }}
+                            >
+                              {review.is_approved ? <XCircle size={20} /> : <CheckCircle size={20} />}
+                            </button>
+                            <button onClick={() => deleteReview(review._id)} title="Delete" style={{ padding: '8px', borderRadius: '8px', border: '1px solid var(--color-gray-dark)', backgroundColor: 'transparent', color: '#dc2626', cursor: 'pointer' }}>
+                              <Trash2 size={20} />
+                            </button>
+                          </div>
+                        </div>
+                        <div style={{ padding: '15px', backgroundColor: 'var(--color-gray)', borderRadius: '8px' }}>
+                          <div style={{ color: 'var(--color-text)', fontStyle: 'italic' }}>"{review.text}"</div>
                         </div>
                       </div>
                     ))
