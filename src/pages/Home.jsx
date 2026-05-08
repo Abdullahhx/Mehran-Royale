@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import GallerySection from '../components/GallerySection';
+import GoogleReviews from '../components/GoogleReviews';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,18 +30,7 @@ const services = [
   }
 ];
 
-const testimonials = [
-  {
-    name: 'Ahmed R.',
-    text: 'Amazing experience! The environment was clean and perfect for our family picnic. The pool is huge and the lawns are pristine.',
-    rating: 5
-  },
-  {
-    name: 'Sara K.',
-    text: 'We hosted our wedding here and everything was perfectly managed. The lighting at night and the gorgeous floral stage setup was wonderful.',
-    rating: 5
-  }
-];
+
 
 const Home = () => {
   const mainRef = useRef(null);
@@ -133,31 +123,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="section testimonials-section" style={{ backgroundColor: 'var(--color-primary)' }}>
-        <div className="container">
-          <div className="section-header">
-            <span className="section-subtitle">Client Stories</span>
-            <h2>What Our Guests Say</h2>
-          </div>
-          
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '40px' }}>
-            {testimonials.map((test, index) => (
-              <div key={index} style={{ padding: '40px', backgroundColor: 'var(--color-gray)', borderRadius: '12px' }}>
-                <div style={{ display: 'flex', gap: '5px', color: 'var(--color-accent)', marginBottom: '20px' }}>
-                  {[...Array(test.rating)].map((_, i) => <Star key={i} size={20} fill="currentColor" />)}
-                </div>
-                <p style={{ fontStyle: 'italic', fontSize: '1.1rem', color: 'var(--color-text)', marginBottom: '20px' }}>
-                  "{test.text}"
-                </p>
-                <h4 style={{ fontFamily: 'var(--font-body)', fontWeight: '600', textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '0.1em' }}>
-                  - {test.name}
-                </h4>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Google Reviews */}
+      <GoogleReviews />
 
       {/* Gallery Section */}
       <GallerySection />
