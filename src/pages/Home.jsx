@@ -123,8 +123,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Google Reviews */}
-      <GoogleReviews />
+      {/* Guest Reviews Preview */}
+      <GoogleReviews limit={3} />
+      
+      <div style={{ textAlign: 'center', backgroundColor: 'var(--color-secondary)', paddingBottom: '60px' }}>
+         <Link to="/reviews" className="btn btn-outline" style={{ marginTop: '-20px' }}>View All Reviews</Link>
+      </div>
 
       {/* Gallery Section */}
       <GallerySection />
