@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Star } from 'lucide-react';
@@ -96,6 +96,46 @@ const GoogleReviews = ({ limit }) => {
 
   const displayedReviews = limit ? googleReviewsData.slice(0, limit) : googleReviewsData;
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', rating: 5, message: '' });
+  const [status, setStatus] = useState('');
+
+  const handleStarClick = (rating) => {
+    setFormData({ ...formData, rating });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          contactInfo: `Rating: ${formData.rating} Stars`,
+          subject: 'New Guest Review Submitted via Website',
+          message: `The user left this review:\n\n${formData.message}`
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setStatus('');
+          setFormData({ name: '', rating: 5, message: '' });
+        }, 2000);
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus('error');
+    }
+  };
+
   return (
     <section className="section google-reviews-section" ref={sectionRef} style={{ backgroundColor: 'var(--color-secondary)' }}>
       <div className="container">
@@ -112,9 +152,9 @@ const GoogleReviews = ({ limit }) => {
               </div>
               <span className="rating-count">124 Google Reviews</span>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=24.9289984,67.2568227" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-review-write">
+            <button onClick={() => setIsModalOpen(true)} className="btn btn-primary btn-review-write">
               Write a Review
-            </a>
+            </button>
           </div>
         </div>
         
@@ -149,6 +189,68 @@ const GoogleReviews = ({ limit }) => {
               <p className="review-text">"{review.text}"</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Review Submission Modal */}
+      <div className={`review-modal-overlay ${isModalOpen ? 'active' : ''}`}>
+        <div className="review-modal">
+          <h3>Write a Review</h3>
+          {status === 'success' ? (
+            <div style={{ textAlign: 'center', padding: '40px 0' }}>
+              <Star size={48} color="var(--color-accent)" fill="var(--color-accent)" style={{ marginBottom: '20px' }} />
+              <h4 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>Thank You!</h4>
+              <p>Your review has been submitted successfully and will be visible after approval.</p>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label>Your Rating</label>
+                <div className="star-rating-input">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star 
+                      key={star} 
+                      size={32} 
+                      onClick={() => handleStarClick(star)}
+                      fill={star <= formData.rating ? "var(--color-accent)" : "transparent"} 
+                      color={star <= formData.rating ? "var(--color-accent)" : "var(--color-gray-dark)"} 
+                      style={{ cursor: 'pointer', transition: 'all 0.2s' }}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="form-group">
+                <label>Your Name</label>
+                <input 
+                  type="text" 
+                  required 
+                  placeholder="Enter your name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                />
+              </div>
+              <div className="form-group">
+                <label>Your Experience</label>
+                <textarea 
+                  required 
+                  placeholder="Tell us about your experience at Mehran Royale..."
+                  value={formData.message}
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                ></textarea>
+              </div>
+              
+              {status === 'error' && (
+                <p style={{ color: 'red', fontSize: '0.9rem', marginBottom: '15px' }}>There was an error submitting your review. Please try again.</p>
+              )}
+
+              <div className="modal-actions">
+                <button type="button" className="btn btn-outline" onClick={() => setIsModalOpen(false)}>Cancel</button>
+                <button type="submit" className="btn btn-primary" disabled={status === 'submitting'}>
+                  {status === 'submitting' ? 'Submitting...' : 'Submit Review'}
+                </button>
+              </div>
+            </form>
+          )}
         </div>
       </div>
     </section>
