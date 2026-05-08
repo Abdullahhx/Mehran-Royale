@@ -102,7 +102,7 @@ const GoogleReviews = () => {
               </div>
               <span className="rating-count">Based on 124 reviews</span>
             </div>
-            <a href="https://google.com" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-review-write">
+            <a href="https://www.google.com/maps/search/?api=1&query=24.9289984,67.2568227" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-review-write">
               Write a review
             </a>
           </div>
