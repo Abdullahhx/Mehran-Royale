@@ -110,7 +110,7 @@ const About = () => {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '40px' }}>
             {amenities.map((item, i) => (
-              <div key={i} className="amenity-card" style={{ padding: '40px 20px', backgroundColor: 'var(--color-primary)', borderRadius: '12px', boxShadow: 'var(--shadow-sm)' }}>
+              <div key={i} className="amenity-card">
                 <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '80px', height: '80px', borderRadius: '50%', backgroundColor: 'rgba(212, 175, 55, 0.1)', color: 'var(--color-accent)', marginBottom: '20px' }}>
                   {item.icon}
                 </div>
