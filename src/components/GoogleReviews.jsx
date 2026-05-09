@@ -184,20 +184,6 @@ const GoogleReviews = ({ limit }) => {
             </div>
             
             <div className="google-reviews-actions">
-              <div className="sort-controls">
-                <button 
-                  className={`btn-sort ${sortBy === 'newest' ? 'active' : ''}`}
-                  onClick={() => setSortBy('newest')}
-                >
-                  Newest
-                </button>
-                <button 
-                  className={`btn-sort ${sortBy === 'rating' ? 'active' : ''}`}
-                  onClick={() => setSortBy('rating')}
-                >
-                  Highest Rating
-                </button>
-              </div>
               <button onClick={() => setIsModalOpen(true)} className="btn btn-primary btn-review-write">
                 Write a Review
               </button>
