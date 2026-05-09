@@ -44,7 +44,6 @@ const Navbar = () => {
           <NavLink to="/about" className="nav-link" onClick={() => setIsOpen(false)}>About Us</NavLink>
           <NavLink to="/services" className="nav-link" onClick={() => setIsOpen(false)}>Services</NavLink>
           <NavLink to="/gallery" className="nav-link" onClick={() => setIsOpen(false)}>Gallery</NavLink>
-          <NavLink to="/reviews" className="nav-link" onClick={() => setIsOpen(false)}>Reviews</NavLink>
           <NavLink to="/booking" className="nav-link" onClick={() => setIsOpen(false)}>Booking</NavLink>
           <NavLink to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</NavLink>
 

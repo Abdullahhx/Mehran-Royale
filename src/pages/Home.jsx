@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight, Star, MapPin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import GallerySection from '../components/GallerySection';
+import GoogleReviews from '../components/GoogleReviews';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,6 +127,9 @@ const Home = () => {
 
       {/* Gallery Section */}
       <GallerySection />
+
+      {/* Reviews Section */}
+      <GoogleReviews limit={3} />
 
       {/* Map Section */}
       <section className="section map-section" style={{ backgroundColor: 'var(--color-primary)' }}>

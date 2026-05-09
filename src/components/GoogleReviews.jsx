@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Star } from 'lucide-react';
+import API_URL from '../config';
 import './GoogleReviews.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -55,7 +56,7 @@ const GoogleReviews = ({ limit }) => {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reviews`);
+      const response = await fetch(`${API_URL}/api/reviews`);
       if (response.ok) {
         const dbReviews = await response.json();
         setReviews([...dbReviews, ...staticReviewsData]);
@@ -109,7 +110,7 @@ const GoogleReviews = ({ limit }) => {
     setStatus('submitting');
     
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/reviews`, {
+      const response = await fetch(`${API_URL}/api/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
