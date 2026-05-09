@@ -180,7 +180,7 @@ const GoogleReviews = ({ limit }) => {
               <div className="rating-stars-overall">
                 {[...Array(5)].map((_, i) => <Star key={i} size={20} fill="var(--color-accent)" color="var(--color-accent)" />)}
               </div>
-              <span className="rating-count">{reviews.length} Google Reviews</span>
+              <span className="rating-count">{reviews.length} Guest Reviews</span>
             </div>
             
             <div className="google-reviews-actions">

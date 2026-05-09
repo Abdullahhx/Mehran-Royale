@@ -153,3 +153,12 @@ img {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
+
+.amenity-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.amenity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-md);
+}
