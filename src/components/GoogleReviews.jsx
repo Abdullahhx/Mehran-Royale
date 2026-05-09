@@ -71,21 +71,29 @@ const GoogleReviews = ({ limit }) => {
 
   useEffect(() => {
     if (reviews.length > 0) {
-      const ctx = gsap.context(() => {
-        gsap.from('.google-review-card', {
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: 'top 80%',
-          },
-          y: 50,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: 'power3.out'
-        });
-      }, sectionRef);
+      const timer = setTimeout(() => {
+        const ctx = gsap.context(() => {
+          gsap.fromTo('.google-review-card', 
+            { y: 50, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: sectionRef.current,
+                start: 'top 85%',
+              },
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.15,
+              ease: 'power3.out'
+            }
+          );
+          ScrollTrigger.refresh();
+        }, sectionRef);
+        
+        return () => ctx.revert();
+      }, 100);
       
-      return () => ctx.revert();
+      return () => clearTimeout(timer);
     }
   }, [reviews]);
 
