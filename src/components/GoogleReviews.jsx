@@ -45,6 +45,7 @@ const staticReviewsData = [
 const GoogleReviews = ({ limit }) => {
   const sectionRef = useRef(null);
   const [reviews, setReviews] = useState([]);
+  const [sortBy, setSortBy] = useState('newest');
   
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({ name: '', rating: 5, message: '' });
@@ -144,7 +145,14 @@ const GoogleReviews = ({ limit }) => {
     }
   };
 
-  const displayedReviews = limit ? reviews.slice(0, limit) : reviews;
+  const sortedReviews = [...reviews].sort((a, b) => {
+    if (sortBy === 'newest') {
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    } else {
+      return b.rating - a.rating;
+    }
+  });
+
   const averageRating = reviews.length > 0 ? (reviews.reduce((acc, rev) => acc + rev.rating, 0) / reviews.length).toFixed(1) : 4.8;
 
   const timeAgo = (date) => {
@@ -174,14 +182,31 @@ const GoogleReviews = ({ limit }) => {
               </div>
               <span className="rating-count">{reviews.length} Google Reviews</span>
             </div>
-            <button onClick={() => setIsModalOpen(true)} className="btn btn-primary btn-review-write">
-              Write a Review
-            </button>
+            
+            <div className="google-reviews-actions">
+              <div className="sort-controls">
+                <button 
+                  className={`btn-sort ${sortBy === 'newest' ? 'active' : ''}`}
+                  onClick={() => setSortBy('newest')}
+                >
+                  Newest
+                </button>
+                <button 
+                  className={`btn-sort ${sortBy === 'rating' ? 'active' : ''}`}
+                  onClick={() => setSortBy('rating')}
+                >
+                  Highest Rating
+                </button>
+              </div>
+              <button onClick={() => setIsModalOpen(true)} className="btn btn-primary btn-review-write">
+                Write a Review
+              </button>
+            </div>
           </div>
         </div>
         
         <div className="google-reviews-grid">
-          {displayedReviews.map((review) => (
+          {sortedReviews.map((review) => (
             <div key={review._id} className="google-review-card">
               <div className="review-author">
                 <div className="author-avatar-fallback" style={{ backgroundColor: getAvatarColor(review.author_name) }}>

@@ -70,14 +70,73 @@
   letter-spacing: 1px;
 }
 
+.google-reviews-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.sort-controls {
+  display: flex;
+  gap: 10px;
+  background: var(--color-primary);
+  padding: 5px;
+  border-radius: 50px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.btn-sort {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text-light);
+  transition: all 0.3s ease;
+}
+
+.btn-sort.active {
+  background: var(--color-accent);
+  color: white;
+}
+
+.btn-sort:hover:not(.active) {
+  color: var(--color-accent);
+}
+
 .google-reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  overflow-x: auto;
   gap: 30px;
   margin-top: 40px;
+  padding-bottom: 30px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-accent) var(--color-gray-dark);
+}
+
+.google-reviews-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.google-reviews-grid::-webkit-scrollbar-track {
+  background: var(--color-gray);
+  border-radius: 4px;
+}
+
+.google-reviews-grid::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
 }
 
 .google-review-card {
+  flex: 0 0 min(100%, 380px);
+  scroll-snap-align: center;
   background: var(--color-primary);
   border-radius: 16px;
   padding: 35px;
