@@ -77,8 +77,20 @@
 }
 
 @media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+  }
+
   .hero-title {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    margin-bottom: 28px;
   }
   
   .hero-actions {
@@ -97,7 +109,16 @@
 }
 
 @media (max-width: 480px) {
+  .hero-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+  }
+
   .hero-title {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
+  }
+
+  .hero-desc {
+    font-size: 0.95rem;
   }
 }
