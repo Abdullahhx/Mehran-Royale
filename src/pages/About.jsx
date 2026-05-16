@@ -63,7 +63,7 @@ const About = () => {
         <div className="container">
           <div className="responsive-grid-2">
             
-            <div className="about-image" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', minHeight: '300px', height: 'auto', aspectRatio: '16/9' }}>
+            <div className="about-image" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', minHeight: '250px', height: 'auto', aspectRatio: '16/9' }}>
               <video 
                 autoPlay 
                 loop 

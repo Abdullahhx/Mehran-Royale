@@ -90,7 +90,7 @@ const Booking = () => {
       <div className="section">
         <div className="container" style={{ maxWidth: '1000px' }}>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 2fr', gap: '40px', backgroundColor: 'var(--color-primary)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+          <div className="responsive-grid-2" style={{ backgroundColor: 'var(--color-primary)', borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
 
             {/* Contact Info Sidebar */}
             <div style={{ backgroundColor: 'var(--color-accent-dark)', color: 'white', padding: '40px' }}>
@@ -132,7 +132,7 @@ const Booking = () => {
                   <p>We have received your inquiry and will contact you shortly to confirm the details.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                <form onSubmit={handleSubmit} className="responsive-grid-2">
 
                   <div style={{ gridColumn: '1 / -1' }}>
                     <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Full Name *</label>

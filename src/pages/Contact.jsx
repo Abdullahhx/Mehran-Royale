@@ -84,7 +84,7 @@ const Contact = () => {
             ></iframe>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 1fr) 1.5fr', gap: '40px' }}>
+          <div className="responsive-grid-2">
             
             {/* Contact Information */}
             <div className="contact-stagger">
@@ -161,7 +161,7 @@ const Contact = () => {
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '20px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div className="responsive-grid-2" style={{ gap: '20px' }}>
                       <div>
                         <label style={{ display: 'block', marginBottom: '8px', fontWeight: '500' }}>Name *</label>
                         <input type="text" name="name" value={formData.name} onChange={handleChange} required placeholder="Mehran" style={{ width: '100%', padding: '14px', border: '1px solid var(--color-gray-dark)', borderRadius: '8px', fontFamily: 'var(--font-body)' }} />
