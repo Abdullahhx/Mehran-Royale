@@ -61,9 +61,9 @@ const About = () => {
       {/* Welcome Section */}
       <div className="section about-welcome" style={{ backgroundColor: 'var(--color-primary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+          <div className="responsive-grid-2">
             
-            <div className="about-image" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', height: '500px' }}>
+            <div className="about-image" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', minHeight: '300px', height: 'auto', aspectRatio: '16/9' }}>
               <video 
                 autoPlay 
                 loop 
@@ -125,7 +125,7 @@ const About = () => {
       {/* Luxury Experience Section */}
       <div className="section" style={{ backgroundColor: 'var(--color-primary)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+          <div className="responsive-grid-2">
             <div>
               <span style={{ display: 'block', fontSize: '1rem', color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: '600', marginBottom: '15px' }}>Luxury Lifestyle</span>
               <h2 style={{ fontSize: '3rem', marginBottom: '30px' }}>Unmatched Elegance and Comfort</h2>
@@ -138,7 +138,7 @@ const About = () => {
                 <li style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px', fontSize: '1.1rem' }}><span style={{ color: 'var(--color-accent)' }}>✔</span> Exquisite culinary experiences</li>
               </ul>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div className="responsive-grid-2" style={{ gap: '20px' }}>
                <img src="/images/statue-horse.png" alt="Luxury 1" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px', marginTop: '40px' }} />
                <img src="/images/pool-area.png" alt="Luxury 2" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px' }} />
             </div>
