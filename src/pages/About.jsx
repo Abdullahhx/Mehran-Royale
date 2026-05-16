@@ -63,7 +63,7 @@ const About = () => {
         <div className="container">
           <div className="responsive-grid-2">
             
-            <div className="about-image" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', minHeight: '250px', height: 'auto', aspectRatio: '16/9' }}>
+            <div className="about-image about-video-container" style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: 'var(--shadow-md)', aspectRatio: '16/9', width: '100%', maxWidth: '100%' }}>
               <video 
                 autoPlay 
                 loop 
@@ -138,7 +138,7 @@ const About = () => {
                 <li style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '15px', fontSize: '1.1rem' }}><span style={{ color: 'var(--color-accent)' }}>✔</span> Exquisite culinary experiences</li>
               </ul>
             </div>
-            <div className="responsive-grid-2" style={{ gap: '20px' }}>
+            <div className="responsive-grid-2 about-luxury-images" style={{ gap: '20px' }}>
                <img src="/images/statue-horse.png" alt="Luxury 1" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px', marginTop: '40px' }} />
                <img src="/images/pool-area.png" alt="Luxury 2" style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '12px' }} />
             </div>
