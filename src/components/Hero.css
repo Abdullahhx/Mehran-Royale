@@ -41,13 +41,13 @@
 }
 
 .hero-subtitle {
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  color: var(--color-accent);
+  color: white;
   font-weight: 500;
-  font-size: 1rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
   display: block;
 }
 

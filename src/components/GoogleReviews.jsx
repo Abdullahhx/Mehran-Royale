@@ -200,10 +200,7 @@ const GoogleReviews = ({ limit }) => {
                 </div>
                 <div className="author-info">
                   <h4 className="author-name">{review.author_name}</h4>
-                  <div className="author-meta">
-                    {review.is_local_guide && <span className="local-guide">Local Guide · </span>}
-                    <span className="reviews-count">Guest</span>
-                  </div>
+
                 </div>
               </div>
               <div className="review-rating">

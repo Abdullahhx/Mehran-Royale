@@ -32,11 +32,12 @@
   margin-bottom: 10px;
   font-family: var(--font-heading);
   letter-spacing: 2px;
+  color: white;
 }
 
 .global-hero-breadcrumb {
   font-size: 1.1rem;
-  color: var(--color-accent);
+  color: rgba(255, 255, 255, 0.9);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   font-family: var(--font-body);
