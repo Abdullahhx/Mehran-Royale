@@ -119,3 +119,35 @@
     border-radius: 8px;
   }
 }
+
+/* Gallery Page Grid */
+.gallery-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  width: 100%;
+}
+
+.gallery-page-item {
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .gallery-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .gallery-page-item {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .gallery-page-item {
+    height: 130px;
+  }
+}

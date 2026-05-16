@@ -64,13 +64,9 @@ const Gallery = () => {
           </div>
 
           {/* Grid */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', 
-            gap: '40px' 
-          }}>
+          <div className="gallery-page-grid">
             {filteredItems.map(item => (
-              <div key={item.id} className="gallery-item" style={{ backgroundColor: 'var(--color-gray)', padding: '15px', borderRadius: '12px', height: '300px', cursor: 'pointer', boxShadow: 'var(--shadow-sm)' }}>
+              <div key={item.id} className="gallery-item gallery-page-item" style={{ backgroundColor: 'var(--color-gray)', padding: '10px', borderRadius: '12px', cursor: 'pointer', boxShadow: 'var(--shadow-sm)' }}>
                 <div style={{ width: '100%', height: '100%', overflow: 'hidden', borderRadius: '8px' }}>
                   <img 
                     src={item.image} 
