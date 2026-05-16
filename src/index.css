@@ -174,13 +174,21 @@ img {
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .service-row-layout {
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 60px;
   margin-bottom: 100px;
+  width: 100%;
+}
+
+.service-row-layout.reverse {
+  flex-direction: row-reverse;
 }
 
 @media (max-width: 992px) {
@@ -193,10 +201,19 @@ img {
     flex-direction: column !important;
     gap: 30px;
     margin-bottom: 60px;
+    overflow: hidden;
   }
 
   .service-row-layout > div {
     width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  .service-row-layout > div img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
   }
 
   /* Force image on top for reversed rows on mobile */

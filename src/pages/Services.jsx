@@ -92,9 +92,6 @@ const Services = () => {
               key={index} 
               id={service.id}
               className={`service-row-layout ${service.reverse ? 'reverse' : ''}`}
-              style={{ 
-                flexDirection: service.reverse ? 'row-reverse' : 'row',
-              }}
             >
               {/* Image Side */}
               <div style={{ flex: 1 }}>

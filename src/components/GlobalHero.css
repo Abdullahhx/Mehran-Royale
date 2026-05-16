@@ -45,11 +45,17 @@
 
 @media (max-width: 768px) {
   .global-hero {
-    height: 220px;
+    height: 280px;
+    align-items: flex-end;
+    padding-bottom: 20px;
+  }
+  .global-hero-content {
+    padding-top: 0;
   }
   .global-hero-title {
     font-size: 1.8rem;
     letter-spacing: 1px;
+    margin-bottom: 6px;
   }
   .global-hero-breadcrumb {
     font-size: 0.85rem;
