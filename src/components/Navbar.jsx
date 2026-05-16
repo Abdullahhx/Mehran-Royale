@@ -36,7 +36,7 @@ const Navbar = () => {
     <header className={`navbar ${scrolled || !isHome ? 'nav-scrolled glass' : ''}`}>
       <div className="container nav-container">
         <NavLink to="/" className="nav-logo" style={{ display: 'flex', alignItems: 'center', gap: '15px', textTransform: 'none', letterSpacing: 'normal', textDecoration: 'none', color: 'inherit' }} onClick={() => setIsOpen(false)}>
-          <img src={scrolled || !isHome ? "/mehran_royale_black.png" : "/logo MR.png"} alt="Mehran Royale Logo" style={{ width: '220px', height: 'auto', objectFit: 'contain' }} />
+          <img src={scrolled || !isHome ? "/mehran_royale_black.png" : "/logo MR.png"} alt="Mehran Royale Logo" className="nav-logo-img" />
         </NavLink>
 
         <nav className={`nav-menu ${isOpen ? 'active' : ''}`}>

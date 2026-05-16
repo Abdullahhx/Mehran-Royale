@@ -147,3 +147,34 @@
     border-top: 1px solid var(--color-gray-dark);
   }
 }
+
+.nav-logo-img {
+  width: 220px;
+  height: auto;
+  object-fit: contain;
+  transition: width 0.3s ease;
+}
+
+@media (max-width: 992px) {
+  .nav-logo-img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-logo-img {
+    width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo-img {
+    width: 140px;
+  }
+}
+
+@media (max-width: 380px) {
+  .nav-logo-img {
+    width: 120px;
+  }
+}
